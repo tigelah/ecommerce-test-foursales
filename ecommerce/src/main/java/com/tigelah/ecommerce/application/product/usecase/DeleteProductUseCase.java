@@ -1,4 +1,5 @@
 package com.tigelah.ecommerce.application.product.usecase;
 
-public interface DeleteProductUseCase {
-}
+import java.util.UUID;
+
+public interface DeleteProductUseCase { void handle(UUID id); }

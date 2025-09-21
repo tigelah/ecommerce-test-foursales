@@ -1,4 +1,3 @@
 package com.tigelah.ecommerce.application.security;
 
-public record TokenDTO() {
-}
+public record TokenDTO(String accessToken, String tokenType, long expiresInSeconds) {}

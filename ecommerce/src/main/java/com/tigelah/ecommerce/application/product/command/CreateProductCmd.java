@@ -1,4 +1,8 @@
 package com.tigelah.ecommerce.application.product.command;
 
-public class CreateProductCmd {
-}
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
+public record CreateProductCmd(String name, String description, BigDecimal price, String category, BigInteger stock) {}
+
+

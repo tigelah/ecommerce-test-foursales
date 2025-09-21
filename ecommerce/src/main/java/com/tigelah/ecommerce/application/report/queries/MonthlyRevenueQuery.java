@@ -1,4 +1,5 @@
 package com.tigelah.ecommerce.application.report.queries;
 
-public interface MonthlyRevenueQuery {
-}
+import java.math.BigDecimal;
+
+public interface MonthlyRevenueQuery { BigDecimal currentMonth(); }

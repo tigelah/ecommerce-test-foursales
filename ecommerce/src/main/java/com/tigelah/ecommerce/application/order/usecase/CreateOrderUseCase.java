@@ -1,4 +1,6 @@
-package com.tigelah.ecommerce.application.order.command;
+package com.tigelah.ecommerce.application.order.usecase;
+
+import com.tigelah.ecommerce.application.order.command.CreateOrderCmd;
 
 import java.util.UUID;
 
