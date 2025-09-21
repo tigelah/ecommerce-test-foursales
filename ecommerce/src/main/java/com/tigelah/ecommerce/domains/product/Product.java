@@ -1,4 +1,4 @@
-package com.tigelah.ecommerce.domains;
+package com.tigelah.ecommerce.domains.product;
 
 
 import lombok.*;
