@@ -1,0 +1,74 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ecommerce
+
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB:ecommerce}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: ${MYSQL_USER:ecom}
+    password: ${MYSQL_PASSWORD:secret}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      initialization-fail-timeout: 0
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 30000
+      validation-timeout: 5000
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.format_sql: true
+      hibernate.jdbc.time_zone: UTC
+      hibernate.connection.provider_disables_autocommit: true
+    show-sql: false
+
+  sql:
+    init:
+      mode: never
+
+  elasticsearch:
+    uris: http://${ES_HOST:localhost}:${ES_PORT:9200}
+    connection-timeout: 5s
+    socket-timeout: 10s
+
+  kafka:
+    bootstrap-servers: ${KAFKA_BROKER:localhost:9092}
+    consumer:
+      group-id: ecommerce-local
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    listener:
+      ack-mode: record
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,readiness
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+logging:
+  level:
+    root: INFO
+    org.hibernate.SQL: WARN
+    org.springframework.kafka: INFO
+    org.springframework.orm.jpa: INFO
+
+security:
+  jwt:
+    secret: ${JWT_SECRET:change_me_please_32bytes_minimum____________}
+    ttl: ${JWT_TTL:3600}
