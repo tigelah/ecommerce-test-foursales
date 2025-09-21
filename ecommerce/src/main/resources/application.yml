@@ -16,6 +16,7 @@ spring:
       minimum-idle: 2
       connection-timeout: 30000
       validation-timeout: 5000
+      auto-commit: false
 
   jpa:
     open-in-view: false
@@ -70,5 +71,5 @@ logging:
 
 security:
   jwt:
-    secret: ${JWT_SECRET:change_me_please_32bytes_minimum____________}
+    secret: ${JWT_SECRET:9d3f8b21c7a64a0e2f5b4c17d9a2e6c1b4f0a3d2e9c8b7a6f1d0e2c3a4b5d6f7}
     ttl: ${JWT_TTL:3600}
