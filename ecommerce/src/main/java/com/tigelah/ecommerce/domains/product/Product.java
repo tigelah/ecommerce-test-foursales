@@ -37,7 +37,7 @@ public class Product {
   private final Instant createdAt = Instant.now();
 
   @Builder.Default
-  private Instant updatedAt = createdAt;
+  private Instant updatedAt = Instant.now();
 
   public void touchUpdated() {
     this.updatedAt = Instant.now();
