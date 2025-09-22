@@ -1,4 +1,4 @@
-package com.tigelah.ecommerce.application.usecase;
+package com.tigelah.ecommerce.application.usecases;
 
 import com.tigelah.ecommerce.application.order.command.CreateOrderCmd;
 import com.tigelah.ecommerce.application.order.ports.OrderRepository;

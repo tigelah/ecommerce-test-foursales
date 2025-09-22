@@ -1,4 +1,4 @@
-package com.tigelah.ecommerce.application.usecase;
+package com.tigelah.ecommerce.application.usecases;
 
 import com.tigelah.ecommerce.application.product.command.UpdateProductCmd;
 import com.tigelah.ecommerce.application.product.ports.ProductIndexer;

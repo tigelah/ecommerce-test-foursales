@@ -1,4 +1,5 @@
 package com.tigelah.ecommerce.application.reports.dto;
 
-public class MonthlyRevenueDTO {
-}
+import java.math.BigDecimal;
+
+public record MonthlyRevenueDTO(int year, int month, BigDecimal totalRevenue) {}

@@ -1,4 +1,4 @@
-package com.tigelah.ecommerce.application.report.queries;
+package com.tigelah.ecommerce.application.reports.queries;
 
 import java.math.BigDecimal;
 

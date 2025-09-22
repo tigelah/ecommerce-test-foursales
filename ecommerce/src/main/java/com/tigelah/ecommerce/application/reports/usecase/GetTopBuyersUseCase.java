@@ -5,6 +5,6 @@ import com.tigelah.ecommerce.application.reports.dto.TopBuyerDTO;
 import java.time.Instant;
 import java.util.List;
 
-public interface GetTopCustomersUseCase {
+public interface GetTopBuyersUseCase {
   List<TopBuyerDTO> handle(Instant start, Instant end, int limit);
 }

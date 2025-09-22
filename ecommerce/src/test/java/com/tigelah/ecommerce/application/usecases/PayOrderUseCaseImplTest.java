@@ -1,4 +1,4 @@
-package com.tigelah.ecommerce.application.usecase;
+package com.tigelah.ecommerce.application.usecases;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,6 +1,6 @@
-package com.tigelah.ecommerce.application.report.queries;
+package com.tigelah.ecommerce.application.reports.queries;
 
-import com.tigelah.ecommerce.application.report.dto.AvgTicketDTO;
+import com.tigelah.ecommerce.application.reports.dto.AvgTicketDTO;
 
 import java.time.LocalDate;
 import java.util.List;

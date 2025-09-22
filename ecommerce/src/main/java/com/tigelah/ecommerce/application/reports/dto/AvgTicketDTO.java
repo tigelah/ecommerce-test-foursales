@@ -1,4 +1,4 @@
-package com.tigelah.ecommerce.application.report.dto;
+package com.tigelah.ecommerce.application.reports.dto;
 
 import java.math.BigDecimal;
 import java.util.UUID;

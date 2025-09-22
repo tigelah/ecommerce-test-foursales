@@ -1,4 +1,4 @@
-package com.tigelah.ecommerce.application.usecase;
+package com.tigelah.ecommerce.application.usecases;
 
 import com.tigelah.ecommerce.application.inventory.ports.InventoryRepository;
 import com.tigelah.ecommerce.application.inventory.usecase.impl.ProcessOrderPaidUseCaseImpl;
