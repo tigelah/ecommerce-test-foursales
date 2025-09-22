@@ -1,7 +1,7 @@
 package com.tigelah.ecommerce.application.order.usecase;
 
 import com.tigelah.ecommerce.application.order.command.CreateOrderCmd;
+import com.tigelah.ecommerce.domains.order.Order;
 
-import java.util.UUID;
 
-public interface CreateOrderUseCase { UUID handle(CreateOrderCmd cmd, UUID userId); }
+public interface CreateOrderUseCase { Order handle(CreateOrderCmd cmd); }

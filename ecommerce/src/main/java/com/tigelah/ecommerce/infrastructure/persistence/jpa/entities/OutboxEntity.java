@@ -1,4 +1,4 @@
-package com.tigelah.ecommerce.infrastructure.persistence.jpa;
+package com.tigelah.ecommerce.infrastructure.persistence.jpa.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

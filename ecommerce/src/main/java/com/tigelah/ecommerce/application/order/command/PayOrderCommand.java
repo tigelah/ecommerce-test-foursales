@@ -1,4 +1,4 @@
-package com.tigelah.ecommerce.application.order.dto;
+package com.tigelah.ecommerce.application.order.command;
 
 import java.util.UUID;
 

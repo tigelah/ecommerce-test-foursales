@@ -1,4 +1,4 @@
-package com.tigelah.ecommerce.infrastructure.persistence.jpa.repository;
+package com.tigelah.ecommerce.infrastructure.persistence.jpa.repositories;
 
 import com.tigelah.ecommerce.infrastructure.persistence.jpa.entities.OrderEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

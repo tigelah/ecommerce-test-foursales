@@ -1,9 +1,6 @@
 package com.tigelah.ecommerce.domains.order;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -16,6 +13,8 @@ import java.util.UUID;
 @Getter
 @EqualsAndHashCode(of = "id")
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
+@Setter
 public class Order {
 
   private final UUID id;

@@ -2,8 +2,8 @@ package com.tigelah.ecommerce.infrastructure.persistence.adpters;
 
 import com.tigelah.ecommerce.domains.product.Product;
 import com.tigelah.ecommerce.domains.product.ProductRepository;
-import com.tigelah.ecommerce.infrastructure.persistence.jpa.ProductEntity;
-import com.tigelah.ecommerce.infrastructure.persistence.jpa.SpringDataProductRepository;
+import com.tigelah.ecommerce.infrastructure.persistence.jpa.entities.ProductEntity;
+import com.tigelah.ecommerce.infrastructure.persistence.jpa.repositories.SpringDataProductJpa;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +14,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ProductRepositoryJpaAdapter implements ProductRepository {
 
-  private final SpringDataProductRepository repo;
+  private final SpringDataProductJpa repo;
 
   @Override
   public Optional<Product> findById(UUID id) {

@@ -1,5 +1,7 @@
 package com.tigelah.ecommerce.application.order.usecase;
 
-import java.util.UUID;
+import com.tigelah.ecommerce.application.order.command.PayOrderCommand;
+import com.tigelah.ecommerce.domains.order.Order;
 
-public interface PayOrderUseCase { void handle(UUID orderId, UUID userId); }
+
+public interface PayOrderUseCase { Order handle(PayOrderCommand userId); }
