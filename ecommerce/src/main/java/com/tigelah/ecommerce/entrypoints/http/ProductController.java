@@ -3,7 +3,9 @@ package com.tigelah.ecommerce.entrypoints.http;
 import com.tigelah.ecommerce.application.product.command.CreateProductCmd;
 import com.tigelah.ecommerce.application.product.command.UpdateProductCmd;
 import com.tigelah.ecommerce.application.product.dto.ProductDTO;
+import com.tigelah.ecommerce.application.product.query.ProductSearchQuery;
 import com.tigelah.ecommerce.application.product.usecase.*;
+import com.tigelah.ecommerce.commons.PageResult;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import org.springframework.http.ResponseEntity;
@@ -22,9 +24,31 @@ public class ProductController {
   private final UpdateProductUseCase updateUC;
   private final DeleteProductUseCase deleteUC;
   private final GetProductUseCase getUC;
+  private final SearchProductsUseCase searchUC;
 
-  public ProductController(CreateProductUseCase c, UpdateProductUseCase u, DeleteProductUseCase d, GetProductUseCase g){
-    this.createUC = c; this.updateUC = u; this.deleteUC = d; this.getUC = g;
+  public ProductController(CreateProductUseCase c, UpdateProductUseCase u, DeleteProductUseCase d, GetProductUseCase g, SearchProductsUseCase s){
+    this.createUC = c;
+    this.updateUC = u;
+    this.deleteUC = d;
+    this.getUC = g;
+    this.searchUC = s;
+  }
+
+  @GetMapping("/search")
+  public ResponseEntity<PageResult<ProductDTO>> search(
+    @RequestParam(required = false) String name,
+    @RequestParam(required = false) String category,
+    @RequestParam(required = false) BigDecimal minPrice,
+    @RequestParam(required = false) BigDecimal maxPrice,
+    @RequestParam(defaultValue = "0") int page,
+    @RequestParam(defaultValue = "20") int size
+  ) {
+    if (minPrice != null && maxPrice != null && minPrice.compareTo(maxPrice) > 0) {
+      return ResponseEntity.badRequest().build();
+    }
+
+    var q = new ProductSearchQuery(name, category, minPrice, maxPrice, page, size);
+    return ResponseEntity.ok(searchUC.handle(q));
   }
 
   public record CreateRequest(

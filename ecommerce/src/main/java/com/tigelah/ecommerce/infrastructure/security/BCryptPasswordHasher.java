@@ -1,4 +1,4 @@
-package com.tigelah.ecommerce.infrastructure.security.adpaters;
+package com.tigelah.ecommerce.infrastructure.security;
 
 import com.tigelah.ecommerce.domains.user.PasswordHasher;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
