@@ -78,13 +78,14 @@ make stop
 
 make build
 make java-run
-```
 
 make test
-# ou
 ./mvnw test
+```
 
-Smoke tests (curl)
+
+
+# Smoke tests (curl)
 
 ADMIN_TOKEN=$(curl -s -X POST http://localhost:8080/auth/login \
   -H "Content-Type: application/json" \
