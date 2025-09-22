@@ -20,13 +20,7 @@ public class CreateProductUseCaseImpl implements CreateProductUseCase {
 
   @Override
   public UUID handle(CreateProductCmd cmd) {
-    var product = Product.builder()
-      .name(cmd.name())
-      .description(cmd.description())
-      .price(cmd.price())
-      .category(cmd.category())
-      .stock(cmd.stock() == null ? BigInteger.ZERO : cmd.stock())
-      .build();
+    var product = Product.builder().name(cmd.name()).description(cmd.description()).price(cmd.price()).category(cmd.category()).stock(cmd.stock() == null ? BigInteger.ZERO : cmd.stock()).build();
     product.validate();
 
     var saved = repository.save(product);

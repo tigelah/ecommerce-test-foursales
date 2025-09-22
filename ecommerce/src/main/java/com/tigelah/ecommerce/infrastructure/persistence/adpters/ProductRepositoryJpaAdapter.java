@@ -34,29 +34,11 @@ public class ProductRepositoryJpaAdapter implements ProductRepository {
     repo.deleteById(id);
   }
 
-  private Product toDomain(ProductEntity e){
-    return Product.builder()
-      .id(e.getId())
-      .name(e.getName())
-      .description(e.getDescription())
-      .price(e.getPrice())
-      .category(e.getCategory())
-      .stock(e.getStock())
-      .createdAt(e.getCreatedAt())
-      .updatedAt(e.getUpdatedAt())
-      .build();
+  private Product toDomain(ProductEntity e) {
+    return Product.builder().id(e.getId()).name(e.getName()).description(e.getDescription()).price(e.getPrice()).category(e.getCategory()).stock(e.getStock()).createdAt(e.getCreatedAt()).updatedAt(e.getUpdatedAt()).build();
   }
 
-  private ProductEntity toEntity(Product p){
-    return ProductEntity.builder()
-      .id(p.getId())
-      .name(p.getName())
-      .description(p.getDescription())
-      .price(p.getPrice())
-      .category(p.getCategory())
-      .stock(p.getStock())
-      .createdAt(p.getCreatedAt())
-      .updatedAt(p.getUpdatedAt())
-      .build();
+  private ProductEntity toEntity(Product p) {
+    return ProductEntity.builder().id(p.getId()).name(p.getName()).description(p.getDescription()).price(p.getPrice()).category(p.getCategory()).stock(p.getStock()).createdAt(p.getCreatedAt()).updatedAt(p.getUpdatedAt()).build();
   }
 }

@@ -1,10 +1,10 @@
 package com.tigelah.ecommerce.application.product.usecase.impl;
 
-import com.tigelah.ecommerce.commons.PageResult;
 import com.tigelah.ecommerce.application.product.dto.ProductDTO;
 import com.tigelah.ecommerce.application.product.ports.ProductSearchGateway;
 import com.tigelah.ecommerce.application.product.query.ProductSearchQuery;
 import com.tigelah.ecommerce.application.product.usecase.SearchProductsUseCase;
+import com.tigelah.ecommerce.commons.PageResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

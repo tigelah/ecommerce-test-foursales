@@ -10,7 +10,7 @@ import java.time.Instant;
 import java.util.UUID;
 
 @Entity
-@Table(name="order_outbox")
+@Table(name = "order_outbox")
 @Getter
 @Setter
 @Builder

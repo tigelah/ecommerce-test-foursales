@@ -5,12 +5,20 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
-@Entity @Table(name="orders")
-@Getter @Setter @Builder @NoArgsConstructor @AllArgsConstructor
+@Entity
+@Table(name = "orders")
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderEntity {
-  @Id private UUID id;
+  @Id
+  private UUID id;
   private UUID userId;
   private String status;
   private BigDecimal total;

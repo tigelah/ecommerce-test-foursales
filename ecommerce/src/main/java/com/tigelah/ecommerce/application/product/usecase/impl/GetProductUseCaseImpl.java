@@ -18,8 +18,6 @@ public class GetProductUseCaseImpl implements GetProductUseCase {
 
   @Override
   public ProductDTO handle(UUID id) {
-    return repository.findById(id)
-      .map(ProductMapper::toDTO)
-      .orElseThrow(() -> new NotFoundException("Produto não encontrado: " + id));
+    return repository.findById(id).map(ProductMapper::toDTO).orElseThrow(() -> new NotFoundException("Produto não encontrado: " + id));
   }
 }

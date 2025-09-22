@@ -16,8 +16,6 @@ public class ProductReaderJpaAdapter implements ProductReader {
 
   @Override
   public Optional<ProductReader.ProductSnapshot> getById(UUID id) {
-    return jpa.findById(id).map(e ->
-      new ProductSnapshot(e.getId(), e.getName(), e.getPrice(), e.getStock().intValue())
-    );
+    return jpa.findById(id).map(e -> new ProductSnapshot(e.getId(), e.getName(), e.getPrice(), e.getStock().intValue()));
   }
 }

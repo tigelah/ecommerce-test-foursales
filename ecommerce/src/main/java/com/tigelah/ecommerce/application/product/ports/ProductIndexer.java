@@ -6,5 +6,6 @@ import java.util.UUID;
 
 public interface ProductIndexer {
   void index(Product product);
+
   void delete(UUID id);
 }

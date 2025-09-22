@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
-@Table(name="order_items")
+@Table(name = "order_items")
 @Getter
 @Setter
 @Builder
@@ -23,6 +23,6 @@ public class OrderItemEntity {
   private BigDecimal price;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name="order_id")
+  @JoinColumn(name = "order_id")
   private OrderEntity order;
 }

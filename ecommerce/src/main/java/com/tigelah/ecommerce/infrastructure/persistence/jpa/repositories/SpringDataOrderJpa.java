@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
 
-public interface SpringDataOrderJpa extends JpaRepository<OrderEntity, UUID> {}
+public interface SpringDataOrderJpa extends JpaRepository<OrderEntity, UUID> {
+}

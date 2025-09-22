@@ -1,9 +1,9 @@
 package com.tigelah.ecommerce.infrastructure.persistence.adpters;
 
 import com.tigelah.ecommerce.application.inventory.ports.InventoryRepository;
-import com.tigelah.ecommerce.infrastructure.persistence.jpa.repositories.SpringDataProductJpa;
-import com.tigelah.ecommerce.infrastructure.persistence.jpa.repositories.ProcessedEventJpa;
 import com.tigelah.ecommerce.infrastructure.persistence.jpa.entities.ProcessedEventEntity;
+import com.tigelah.ecommerce.infrastructure.persistence.jpa.repositories.ProcessedEventJpa;
+import com.tigelah.ecommerce.infrastructure.persistence.jpa.repositories.SpringDataProductJpa;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
@@ -22,8 +22,7 @@ public class InventoryRepositoryJpaAdapter implements InventoryRepository {
 
   @Override
   public Optional<ProductSnapshot> findProductForUpdate(UUID id) {
-    return products.findOneForUpdate(id)
-      .map(e -> new ProductSnapshot(e.getId(), e.getName(), e.getPrice(), e.getStock()));
+    return products.findOneForUpdate(id).map(e -> new ProductSnapshot(e.getId(), e.getName(), e.getPrice(), e.getStock()));
   }
 
   @Override
@@ -40,11 +39,7 @@ public class InventoryRepositoryJpaAdapter implements InventoryRepository {
 
   @Override
   public void markProcessed(UUID orderId, String type) {
-    processed.save(ProcessedEventEntity.builder()
-      .id(orderId)
-      .type(type)
-      .processedAt(Instant.now())
-      .build());
+    processed.save(ProcessedEventEntity.builder().id(orderId).type(type).processedAt(Instant.now()).build());
   }
 }
 

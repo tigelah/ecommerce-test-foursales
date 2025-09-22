@@ -17,11 +17,7 @@ public class OrderPaidListener {
   private final ProcessOrderPaidUseCase usecase;
   private final ObjectMapper mapper;
 
-  @KafkaListener(
-    topics = KafkaTopics.ORDER_PAID,
-    groupId = "${spring.kafka.consumer.group-id:ecommerce-inventory}",
-    containerFactory = "kafkaListenerContainerFactory"
-  )
+  @KafkaListener(topics = KafkaTopics.ORDER_PAID, groupId = "${spring.kafka.consumer.group-id:ecommerce-inventory}", containerFactory = "kafkaListenerContainerFactory")
   public void onMessage(@Payload String payload) {
     try {
       var evt = mapper.readValue(payload, OrderPaidEvent.class);

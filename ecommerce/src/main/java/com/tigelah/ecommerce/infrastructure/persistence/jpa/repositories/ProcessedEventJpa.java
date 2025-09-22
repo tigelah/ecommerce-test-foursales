@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
 
-public interface ProcessedEventJpa extends JpaRepository<ProcessedEventEntity, UUID> {}
+public interface ProcessedEventJpa extends JpaRepository<ProcessedEventEntity, UUID> {
+}

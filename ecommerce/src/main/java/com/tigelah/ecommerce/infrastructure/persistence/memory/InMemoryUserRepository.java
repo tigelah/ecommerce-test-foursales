@@ -21,12 +21,18 @@ public class InMemoryUserRepository implements UserRepository {
 
   @PostConstruct
   void seed() {
-    byEmail.put("admin@acme.com",
-      User.createWithRawPassword(null, "admin@acme.com", "admin123", Role.ADMIN, hasher));
-    byEmail.put("user@acme.com",
-      User.createWithRawPassword(null, "user@acme.com", "user123", Role.USER, hasher));
+    byEmail.put("admin@acme.com", User.createWithRawPassword(null, "admin@acme.com", "admin123", Role.ADMIN, hasher));
+    byEmail.put("user@acme.com", User.createWithRawPassword(null, "user@acme.com", "user123", Role.USER, hasher));
   }
 
-  @Override public Optional<User> findByEmail(String email){ return Optional.ofNullable(byEmail.get(email)); }
-  @Override public User save(User user){ byEmail.put(user.getEmail(), user); return user; }
+  @Override
+  public Optional<User> findByEmail(String email) {
+    return Optional.ofNullable(byEmail.get(email));
+  }
+
+  @Override
+  public User save(User user) {
+    byEmail.put(user.getEmail(), user);
+    return user;
+  }
 }

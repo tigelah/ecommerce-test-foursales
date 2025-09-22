@@ -34,7 +34,7 @@ public class OrderController {
 
   @PreAuthorize("hasRole('USER')")
   @PostMapping("/{orderId}/pay")
-  public ResponseEntity<Order> pay(@PathVariable UUID orderId, Principal principal){
+  public ResponseEntity<Order> pay(@PathVariable UUID orderId, Principal principal) {
     var userId = UUID.fromString(principal.getName());
     var order = payOrder.handle(new PayOrderCommand(orderId, userId));
     return ResponseEntity.ok(order);

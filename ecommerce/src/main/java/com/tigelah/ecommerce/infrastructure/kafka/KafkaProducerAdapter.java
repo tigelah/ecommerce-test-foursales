@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class KafkaProducerAdapter {
   private final KafkaTemplate<String, String> kafka;
 
-  public void publish(String topic, String key, String payload){
+  public void publish(String topic, String key, String payload) {
     kafka.send(new ProducerRecord<>(topic, key, payload));
   }
 }

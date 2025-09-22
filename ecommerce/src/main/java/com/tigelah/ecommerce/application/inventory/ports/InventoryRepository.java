@@ -11,7 +11,9 @@ public interface InventoryRepository {
   void saveProduct(ProductSnapshot p);
 
   boolean wasProcessed(UUID orderId);
+
   void markProcessed(UUID orderId, String type);
 
-  record ProductSnapshot(UUID id, String name, java.math.BigDecimal price, BigInteger stock) {}
+  record ProductSnapshot(UUID id, String name, java.math.BigDecimal price, BigInteger stock) {
+  }
 }

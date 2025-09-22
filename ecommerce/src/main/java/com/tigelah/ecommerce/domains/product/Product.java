@@ -16,26 +16,16 @@ public class Product {
 
   @Builder.Default
   private final UUID id = UUID.randomUUID();
-
-  @NonNull
-  private String name;
-
-  private String description;
-
-  @NonNull
-  private BigDecimal price;
-
-  private String category;
-
-  @NonNull
-  private BigInteger stock;
-
-  /**
-   * Datas de auditoria
-   */
   @Builder.Default
   private final Instant createdAt = Instant.now();
-
+  @NonNull
+  private String name;
+  private String description;
+  @NonNull
+  private BigDecimal price;
+  private String category;
+  @NonNull
+  private BigInteger stock;
   @Builder.Default
   private Instant updatedAt = Instant.now();
 

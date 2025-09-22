@@ -4,11 +4,7 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 @Getter
 @EqualsAndHashCode(of = "id")
@@ -20,9 +16,9 @@ public class Order {
   private final UUID id;
   private final UUID userId;
   private final List<OrderItem> items;
+  private final Instant createdAt;
   private OrderStatus status;
   private BigDecimal total;
-  private final Instant createdAt;
   private Instant paidAt;
 
 
@@ -32,23 +28,13 @@ public class Order {
     var safeItems = new ArrayList<>(items);
     var now = Instant.now();
     var total = computeTotal(safeItems);
-    var order = new Order(
-      UUID.randomUUID(),
-      userId,
-      safeItems,
-      OrderStatus.PENDENTE,
-      total,
-      now,
-      null
-    );
+    var order = new Order(UUID.randomUUID(), userId, safeItems, now, OrderStatus.PENDENTE, total,null);
     order.validate();
     return order;
   }
 
   private static BigDecimal computeTotal(List<OrderItem> items) {
-    return items.stream()
-      .map(OrderItem::subtotal)
-      .reduce(BigDecimal.ZERO, BigDecimal::add);
+    return items.stream().map(OrderItem::subtotal).reduce(BigDecimal.ZERO, BigDecimal::add);
   }
 
   public List<OrderItem> getItems() {

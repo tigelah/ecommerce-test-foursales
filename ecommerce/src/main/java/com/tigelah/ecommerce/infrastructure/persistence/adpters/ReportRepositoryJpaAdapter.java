@@ -9,7 +9,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
-import java.time.*;
+import java.time.YearMonth;
+import java.time.ZoneOffset;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,16 +23,12 @@ public class ReportRepositoryJpaAdapter implements ReportRepository {
 
   @Override
   public List<TopBuyerDTO> topBuyers(java.time.Instant start, java.time.Instant end, int limit) {
-    return jpa.topBuyers(start, end, limit).stream()
-      .map(r -> new TopBuyerDTO( UUID.fromString(r.getUserId()), r.getTotalSpent(), r.getOrdersCount()))
-      .toList();
+    return jpa.topBuyers(start, end, limit).stream().map(r -> new TopBuyerDTO(UUID.fromString(r.getUserId()), r.getTotalSpent(), r.getOrdersCount())).toList();
   }
 
   @Override
   public List<AvgTicketDTO> avgTicketPerUser(java.time.Instant start, java.time.Instant end) {
-    return jpa.avgTicketPerUser(start, end).stream()
-      .map(r -> new AvgTicketDTO(UUID.fromString(r.getUserId()), r.getAvgTicket()))
-      .toList();
+    return jpa.avgTicketPerUser(start, end).stream().map(r -> new AvgTicketDTO(UUID.fromString(r.getUserId()), r.getAvgTicket())).toList();
   }
 
   @Override

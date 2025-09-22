@@ -19,16 +19,9 @@ public class UpdateProductUseCaseImpl implements UpdateProductUseCase {
 
   @Override
   public void handle(UUID id, UpdateProductCmd cmd) {
-    var product = repository.findById(id)
-      .orElseThrow(() -> new NotFoundException("Produto não encontrado: " + id));
+    var product = repository.findById(id).orElseThrow(() -> new NotFoundException("Produto não encontrado: " + id));
 
-    var updated = product.toBuilder()
-      .name(cmd.name())
-      .description(cmd.description())
-      .price(cmd.price())
-      .category(cmd.category())
-      .stock(cmd.stock())
-      .build();
+    var updated = product.toBuilder().name(cmd.name()).description(cmd.description()).price(cmd.price()).category(cmd.category()).stock(cmd.stock()).build();
     updated.touchUpdated();
     updated.validate();
 

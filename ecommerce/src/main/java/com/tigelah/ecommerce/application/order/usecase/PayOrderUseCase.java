@@ -4,4 +4,6 @@ import com.tigelah.ecommerce.application.order.command.PayOrderCommand;
 import com.tigelah.ecommerce.domains.order.Order;
 
 
-public interface PayOrderUseCase { Order handle(PayOrderCommand userId); }
+public interface PayOrderUseCase {
+  Order handle(PayOrderCommand userId);
+}

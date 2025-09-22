@@ -23,8 +23,7 @@ public class ProcessOrderPaidUseCaseImpl implements ProcessOrderPaidUseCase {
 
 
     for (var it : event.items()) {
-      var ps = repo.findProductForUpdate(it.productId())
-        .orElseThrow(() -> new IllegalStateException("Produto não encontrado: " + it.productId()));
+      var ps = repo.findProductForUpdate(it.productId()).orElseThrow(() -> new IllegalStateException("Produto não encontrado: " + it.productId()));
 
       var current = ps.stock() == null ? BigInteger.ZERO : ps.stock();
       var qty = BigInteger.valueOf(it.quantity());

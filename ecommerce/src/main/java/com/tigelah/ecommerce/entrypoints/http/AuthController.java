@@ -18,12 +18,15 @@ public class AuthController {
 
   private final AuthUseCase auth;
 
-  public AuthController(AuthUseCase auth) { this.auth = auth; }
-
-  public record LoginRequest(@Email String email, @NotBlank String password) {}
+  public AuthController(AuthUseCase auth) {
+    this.auth = auth;
+  }
 
   @PostMapping("/login")
   public ResponseEntity<TokenDTO> login(@RequestBody LoginRequest req) {
     return ResponseEntity.ok(auth.login(req.email(), req.password()));
+  }
+
+  public record LoginRequest(@Email String email, @NotBlank String password) {
   }
 }

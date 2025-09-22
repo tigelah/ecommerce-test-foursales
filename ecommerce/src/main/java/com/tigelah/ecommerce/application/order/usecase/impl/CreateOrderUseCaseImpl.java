@@ -31,8 +31,7 @@ public class CreateOrderUseCaseImpl implements CreateOrderUseCase {
     BigDecimal total = BigDecimal.ZERO;
 
     for (var it : cmd.items()) {
-      var snapshot = productReader.getById(it.productId())
-        .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado: " + it.productId()));
+      var snapshot = productReader.getById(it.productId()).orElseThrow(() -> new IllegalArgumentException("Produto não encontrado: " + it.productId()));
       if (snapshot.stock() < it.quantity()) {
         hasInsufficient = true;
       }
@@ -41,13 +40,7 @@ public class CreateOrderUseCaseImpl implements CreateOrderUseCase {
       items.add(new OrderItem(it.productId(), it.quantity(), priceNow));
     }
 
-    var order = Order.builder()
-      .userId(cmd.userId())
-      .items(items)
-      .status(hasInsufficient ? OrderStatus.CANCELADO : OrderStatus.PENDENTE)
-      .total(total)
-      .createdAt(Instant.now())
-      .build();
+    var order = Order.builder().userId(cmd.userId()).items(items).status(hasInsufficient ? OrderStatus.CANCELADO : OrderStatus.PENDENTE).total(total).createdAt(Instant.now()).build();
 
     return orderRepository.save(order);
   }

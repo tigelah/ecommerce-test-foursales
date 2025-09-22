@@ -8,7 +8,6 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.Date;
@@ -26,13 +25,7 @@ public class JwtServicePort implements JwtTokenService {
   @Override
   public String generate(String subject, Map<String, Object> claims, long ttlSeconds) {
     long now = System.currentTimeMillis();
-    return Jwts.builder()
-      .setSubject(subject)
-      .addClaims(claims)
-      .setIssuedAt(new Date(now))
-      .setExpiration(new Date(now + ttlSeconds * 1000))
-      .signWith(key, SignatureAlgorithm.HS256)
-      .compact();
+    return Jwts.builder().setSubject(subject).addClaims(claims).setIssuedAt(new Date(now)).setExpiration(new Date(now + ttlSeconds * 1000)).signWith(key, SignatureAlgorithm.HS256).compact();
   }
 
   @Override

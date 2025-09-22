@@ -1,6 +1,9 @@
 package com.tigelah.ecommerce.infrastructure.persistence.jpa.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -10,7 +13,8 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "products")
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

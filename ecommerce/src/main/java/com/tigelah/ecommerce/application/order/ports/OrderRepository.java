@@ -7,6 +7,8 @@ import java.util.UUID;
 
 public interface OrderRepository {
   Order save(Order order);
+
   Optional<Order> findById(UUID id);
+
   void update(Order order);
 }
